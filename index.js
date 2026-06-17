@@ -113,7 +113,7 @@ for(let check of checks) {
     });
 };
 
-const deadLine = new Date("2026-06-17T20:00:00Z");
+const deadLine = new Date(2026, 5, 17, 21, 0, 0);
 
 function getTimeLeft() {
     const now = new Date();

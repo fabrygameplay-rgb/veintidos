@@ -4,7 +4,16 @@ const app = express();
 app.use(express.json());
 app.use(express.static("Public"));
 
-const deadLine = new Date("2026-06-17T20:00:00Z").toISOString();
+const deadLine = new Date(2026, 5, 17, 21, 0, 0);
+
+app.get("/deadLine", (req, res) => {
+    const now = Date.now();
+
+    res.json({
+        expired: now > deadLine.getTime(),
+        remainingMs: deadLine.getTime() - now
+    });
+});
 
 app.get("/", (req,res) => {
     res.send("PetWatch backend functioning correctly");
